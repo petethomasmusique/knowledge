@@ -1,12 +1,8 @@
-# Haskell
-
-## Courses
-
-### Edx: Intro to Functional Programming 
+# Edx: Intro to Functional Programming 
 
 [Course link](https://courses.edx.org/courses/course-v1:DelftX+FP101x+3T2015/course/)
 
-#### Introduction - Part 1
+## Introduction - Part 1
 
 Functional langs provide an elegant framework to write code at a high level of abstraction. We will use Haskell, but they can be applied immediately to use in JS / PHP etc.
 
@@ -33,7 +29,7 @@ for (var i = 1; i <= 10; i++) {
 sum [1..10]
 ```
 
-#### Introduction - Part 2
+## Introduction - Part 2
 
 * Alonzo Church invented Lambda Calculus. All languages today support these statements.
 * John McCarthy in the 1950s invented Lisp - first functional language, but still had imperative features.
@@ -44,7 +40,7 @@ sum [1..10]
 * SASL is the mother of Haskell.
 * 1987 - start of Haskell with idea to build standard lang that people could use to experiment. Petri dish for programming language research.
 
-#### First Steps - Part 1
+## First Steps - Part 1
 
 Repl - read-eval-print-loop - for executing single lines of code, like a terminal
 Ghci to start the repl.
@@ -75,7 +71,7 @@ f a + b
 ```
 Means apply a to the function f then add b. It does not mean, add a and b together then apply to the function f.
 
-#### First Steps - Part 2
+## First Steps - Part 2
 
 Moving beyond simple expressions and loading full scripts.
 When using GHC - edit your script in one window then reload the script when you make changes.
