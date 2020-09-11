@@ -93,5 +93,62 @@ quadrubpe x = double (double )
 ```
 These will become available on the command line
 
+Functions and parameter names must begin with lower case.
+
+Defining a type must start with uppercase.
+
+By convention, list arguments usually have an `s` suffix. For example,
+```
+xs -- a list of values of type x
+ns -- a list of values of type n
+nss -- a list of lists
+```
+By convention, arguments are short, rather than descriptive words. 
+
+Whitespace is significant. Each definition must begin in the the same column:
+```
+a = 10
+b = 20
+```
+rather than
+```
+a = 10
+ b = 20
+```
+Or,
+```
+a = b + c
+    where
+        b = 1
+        c = 2
+d = a * 2
+```
+### Useful GHC commands
+```
+:load script.hs
+:reload
+:edit script.hs
+:edit
+:type expr -- show type of expr
+:? -- show all commands
+:quit -- exit
+```
+### Lab
+When getting type using `:t` we get responses back such as:
+```
+:t head "hello"
+head "hello" :: Char
+```
+Which shows the input and the type of the result.
+
+When getting type of a function you can expect something like this:
+```
+: head
+head :: [a] -> a
+```
+which means, the function head expects an input of a list of type anything, and an output of a single instance of the anything
+
+
+
 
 

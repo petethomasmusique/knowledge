@@ -9,6 +9,10 @@ Reload
 ```
 :r myScript
 ```
+Get types (of variable, expression, anything really)
+```
+:t
+```
 
 ## Functions
 Function declaration. Note that a space denotes a function, rather than parentheses in mathematics
