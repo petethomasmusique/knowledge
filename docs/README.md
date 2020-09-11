@@ -1,3 +1,3 @@
-# Headline
+# Knowledge
 
-> An awesome project.
+A repo of notes from various courses about various things.
