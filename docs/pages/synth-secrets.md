@@ -13,6 +13,7 @@ Keep a running list of techniques that arise over the course of the series that 
 * Using vibrato to modulate a self-oscillating filter (see [section](pages/synth-secrets?id=of-responses-amp-resonance))
 * Using a CV to control the Q of a sound (see [section](pages/synth-secrets?id=of-responses-amp-resonance))
 * Pulse width modulation (PWM) (see [section](pages/synth-secrets?id=modulation))
+* Additive synthesis with each component modulating in some way
 
 ## 1 - What's in a sound?
 [Link](https://www.soundonsound.com/techniques/whats-sound)
@@ -125,6 +126,64 @@ Previous discussion of modulation was all based around LFOs - modulation using f
 
 ### Maths...
 
+## 12 - Introduction to frequency modulation
+[Link](https://www.soundonsound.com/techniques/introduction-frequency-modulation)
+
+John Chowning discovered this form of synthesis when experimenting with vibrato, discovering that when the modulating waveform goes beyond a particular frequency, vibrato disappears and a new complex waveform emerges. 
+
+FM is simply very fast vibrato. It can be visualised in our schematics as an audio rate oscillator, being modulated by a control rate oscillator. FM, like AM, generates sidebands - additional components, not necessarily harmonically related to the freq of the Carrier or Modulator. Whereas AM produces just two, FM produces many sidebands. The modulator's frequency determines where these sidebands will lie. The modulator's amplitude will determine the shape, or amplitudes, of this spectrum. However, this is not constant, and the modulator amplitude must increase proportionally with the pitch to keep the spectra constant. It must, in fact, double with the frequency.
+
+### Filters
+In accord with the Making a Noise book on FM, there is no need to use filters here as controlling the Modulation Index (Carrier / Modulator) determines the bandwidth of the waveform (by determining the shape of the spectra). Using envelopes to control this spectra creates much more rich audio effects than the simple pass and block of spectra achieved using filters.
+
+### Summary
+we can say the following two things about the relationship between the Modulator and the output signal:
+
+* The number of significant spectral components and their amplitudes are determined by the Modulation Index, which is proportional to the Modulator's amplitude; but inversely proportional to the Modulator's frequency...
+* For any given Carrier frequency, the position of the spectral components is determined by the Modulator's frequency alone.
+
+## 13 - More on frequency modulation
+[Link](https://www.soundonsound.com/techniques/more-frequency-modulation)
+
+### Introducing Carrier:Modulator (C:M) Ratios
+In an example where the C:M ratio is 1:1 (the carrier frequency and the modulator frequency are equal) the frequencies of the upper sidebands are C+M, C+2M, C+3M, C+4M etc... The frequencies of the lower sidebands are -C+M, -C+2M, -C+3M, -C+4M etc. What are negative frequencies? Turns out they are the same as the upper frequencies but with their phases inverted. Wouldn't this create phase cancellation? No, because the amplitudes of these upper and lower sidebands are not the same. 
+
+So, in the above example, if the Carrier was 100Hz, the sidebands would be 200Hz, 300Hz, 400Hz, 500Hz etc. A perfect harmonic series.
+
+### Creating Recognisable Harmonic Series
+In the above example of 1:1, not only do we get all of the frequencies of the harmonic series, due to some complex maths that we'll skim over, these have amplitudes of 1n - which is a filtered sawtooth wave.
+
+For a C:M of 1:2, the sidebands are 3C, 5C, 7C... just the odd harmonics are present - which is a filtered square wave.
+
+For 1:3, upper sidebands are 4C, 7C, 10C... with reflected lower sidebands 2C, 5C, 8C... - creating a pulse wave.
+
+The results are relatively simple for integer ratios, creating harmonic sounds with the carrier as the fundamental. This becomes much more complex when the C and M are not integers - often with carrier no longer being the lowest frequency in the spectrum.
+
+Discusses operators and various schematics for creating sounds.
+
+Some directions for drum synthesis using FM:
+* https://www.musicradar.com/how-to/how-to-make-electronic-drum-sounds-using-alternative-synthesis-methods
+
+## 14 - An introduction to additive synthesis
+[Link](https://www.soundonsound.com/techniques/introduction-additive-synthesis)
+
+Additive synthesis usually only associated with digital synthesis.
+
+### Principles
+Refers back to the first in the series - discusses harmonic series and that the harmonic content of a sound determines the waveform. Just as we can break a wavefrom down into its harmonic components, so we can build sounds up from sine waves. Gives this summary: "at any given moment, you can describe any waveform in terms of the frequencies and amplitudes of its components, you can take the appropriate number of sine waves and mix them together at the appropriate frequencies and in the appropriate quantities to regenerate the waveform."
+
+Now, given that this type of sythesis in the analogue domain would require a large bank of VCOs, all connected to VCAs, with a mixer and some kind of gate, this is hopelessly inefficient. However, the Hammond Organ does precisely that. The tonewheel organ has 91 discs on an axle, running the length of the instrument, that, when rotated infront of a pickup, create a pretty close approximation of a sine wave. Each register has 9 drawbars which, when extended, mix in the sound of one of these oscillators at an amplitude dictated by how far out the drawbar is extended.
+
+Whilst the above configuration can create a seemingly infinite array of timbres, what is missing from this being a truly powerful synthesizer is that the Hammond does not have a means of shaping the harmonics over time. Sounds are therefore static. This works for a Hammond because, by their very nature, organs are simple waveform generators which create tones that do not shift over time. Put another way, regardless of the method of synthesis, any timbre will sound static and 'organ-like' if it does not change over time.
+
+If we consider a plucked string sound, with a bright attack that gives way to a darker sustain, we could be tempted to introduce a filter to our additive synthesiser. However, considering that the brightness is determined by harmonic content, why not achieve the same effect by controlling the amplitude envelopes of our harmonics? being able to individually control the amplitude envelopes of your harmonics allows you to achieve timbres that would be impossible with a single signal path.
+
+### Fourier analysis
+
+Discusses Fourier. There's also nothing to stop you from using more complex waveforms, rather than sinewaves, as the basis for your additive synthesis.
+
+### Noise
+Even though a flute can be broken down into its constituent, sinusoidal parts, there is still the missing aspect of noise. So, a complete setup would require a white or pink noise generator, with some sort of filter and envelope. 
 ## Part ? - Creative synthesis with delays
 [Link](https://www.soundonsound.com/techniques/creative-synthesis-delays)
 
